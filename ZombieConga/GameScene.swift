@@ -11,5 +11,10 @@ import SpriteKit
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
+        
+        let background = SKSpriteNode(imageNamed: "background1")
+        background.position = CGPointMake(size.width/2, size.height/2)
+        background.zPosition = -1
+        addChild(background)
     }
 }
