@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47885D221A42CB55007167EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47885D211A42CB55007167EB /* AppDelegate.swift */; };
+		47885D241A42CB55007167EB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47885D231A42CB55007167EB /* GameScene.sks */; };
+		47885D261A42CB55007167EB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47885D251A42CB55007167EB /* GameScene.swift */; };
+		47885D281A42CB55007167EB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47885D271A42CB55007167EB /* GameViewController.swift */; };
+		47885D2B1A42CB55007167EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47885D291A42CB55007167EB /* Main.storyboard */; };
+		47885D2D1A42CB55007167EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47885D2C1A42CB55007167EB /* Images.xcassets */; };
+		47885D301A42CB55007167EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47885D2E1A42CB55007167EB /* LaunchScreen.xib */; };
+		47885D3C1A42CB55007167EB /* ZombieCongaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47885D3B1A42CB55007167EB /* ZombieCongaTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47885D361A42CB55007167EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47885D141A42CB55007167EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47885D1B1A42CB55007167EB;
+			remoteInfo = ZombieConga;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		47885D1C1A42CB55007167EB /* ZombieConga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieConga.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47885D201A42CB55007167EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47885D211A42CB55007167EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		47885D231A42CB55007167EB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		47885D251A42CB55007167EB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		47885D271A42CB55007167EB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		47885D2A1A42CB55007167EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		47885D2C1A42CB55007167EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		47885D2F1A42CB55007167EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		47885D351A42CB55007167EB /* ZombieCongaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZombieCongaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47885D3A1A42CB55007167EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47885D3B1A42CB55007167EB /* ZombieCongaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZombieCongaTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47885D191A42CB55007167EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47885D321A42CB55007167EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47885D131A42CB55007167EB = {
+			isa = PBXGroup;
+			children = (
+				47885D1E1A42CB55007167EB /* ZombieConga */,
+				47885D381A42CB55007167EB /* ZombieCongaTests */,
+				47885D1D1A42CB55007167EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47885D1D1A42CB55007167EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47885D1C1A42CB55007167EB /* ZombieConga.app */,
+				47885D351A42CB55007167EB /* ZombieCongaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47885D1E1A42CB55007167EB /* ZombieConga */ = {
+			isa = PBXGroup;
+			children = (
+				47885D211A42CB55007167EB /* AppDelegate.swift */,
+				47885D231A42CB55007167EB /* GameScene.sks */,
+				47885D251A42CB55007167EB /* GameScene.swift */,
+				47885D271A42CB55007167EB /* GameViewController.swift */,
+				47885D291A42CB55007167EB /* Main.storyboard */,
+				47885D2C1A42CB55007167EB /* Images.xcassets */,
+				47885D2E1A42CB55007167EB /* LaunchScreen.xib */,
+				47885D1F1A42CB55007167EB /* Supporting Files */,
+			);
+			path = ZombieConga;
+			sourceTree = "<group>";
+		};
+		47885D1F1A42CB55007167EB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47885D201A42CB55007167EB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47885D381A42CB55007167EB /* ZombieCongaTests */ = {
+			isa = PBXGroup;
+			children = (
+				47885D3B1A42CB55007167EB /* ZombieCongaTests.swift */,
+				47885D391A42CB55007167EB /* Supporting Files */,
+			);
+			path = ZombieCongaTests;
+			sourceTree = "<group>";
+		};
+		47885D391A42CB55007167EB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47885D3A1A42CB55007167EB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47885D1B1A42CB55007167EB /* ZombieConga */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47885D3F1A42CB55007167EB /* Build configuration list for PBXNativeTarget "ZombieConga" */;
+			buildPhases = (
+				47885D181A42CB55007167EB /* Sources */,
+				47885D191A42CB55007167EB /* Frameworks */,
+				47885D1A1A42CB55007167EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZombieConga;
+			productName = ZombieConga;
+			productReference = 47885D1C1A42CB55007167EB /* ZombieConga.app */;
+			productType = "com.apple.product-type.application";
+		};
+		47885D341A42CB55007167EB /* ZombieCongaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47885D421A42CB55007167EB /* Build configuration list for PBXNativeTarget "ZombieCongaTests" */;
+			buildPhases = (
+				47885D311A42CB55007167EB /* Sources */,
+				47885D321A42CB55007167EB /* Frameworks */,
+				47885D331A42CB55007167EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47885D371A42CB55007167EB /* PBXTargetDependency */,
+			);
+			name = ZombieCongaTests;
+			productName = ZombieCongaTests;
+			productReference = 47885D351A42CB55007167EB /* ZombieCongaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47885D141A42CB55007167EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Atikur Rahman";
+				TargetAttributes = {
+					47885D1B1A42CB55007167EB = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					47885D341A42CB55007167EB = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 47885D1B1A42CB55007167EB;
+					};
+				};
+			};
+			buildConfigurationList = 47885D171A42CB55007167EB /* Build configuration list for PBXProject "ZombieConga" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 47885D131A42CB55007167EB;
+			productRefGroup = 47885D1D1A42CB55007167EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47885D1B1A42CB55007167EB /* ZombieConga */,
+				47885D341A42CB55007167EB /* ZombieCongaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		47885D1A1A42CB55007167EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47885D301A42CB55007167EB /* LaunchScreen.xib in Resources */,
+				47885D2D1A42CB55007167EB /* Images.xcassets in Resources */,
+				47885D241A42CB55007167EB /* GameScene.sks in Resources */,
+				47885D2B1A42CB55007167EB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47885D331A42CB55007167EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47885D181A42CB55007167EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47885D261A42CB55007167EB /* GameScene.swift in Sources */,
+				47885D281A42CB55007167EB /* GameViewController.swift in Sources */,
+				47885D221A42CB55007167EB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47885D311A42CB55007167EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47885D3C1A42CB55007167EB /* ZombieCongaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		47885D371A42CB55007167EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47885D1B1A42CB55007167EB /* ZombieConga */;
+			targetProxy = 47885D361A42CB55007167EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		47885D291A42CB55007167EB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47885D2A1A42CB55007167EB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		47885D2E1A42CB55007167EB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47885D2F1A42CB55007167EB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		47885D3D1A42CB55007167EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		47885D3E1A42CB55007167EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		47885D401A42CB55007167EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZombieConga/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		47885D411A42CB55007167EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZombieConga/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		47885D431A42CB55007167EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ZombieCongaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZombieConga.app/ZombieConga";
+			};
+			name = Debug;
+		};
+		47885D441A42CB55007167EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ZombieCongaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZombieConga.app/ZombieConga";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47885D171A42CB55007167EB /* Build configuration list for PBXProject "ZombieConga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47885D3D1A42CB55007167EB /* Debug */,
+				47885D3E1A42CB55007167EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47885D3F1A42CB55007167EB /* Build configuration list for PBXNativeTarget "ZombieConga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47885D401A42CB55007167EB /* Debug */,
+				47885D411A42CB55007167EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		47885D421A42CB55007167EB /* Build configuration list for PBXNativeTarget "ZombieCongaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47885D431A42CB55007167EB /* Debug */,
+				47885D441A42CB55007167EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47885D141A42CB55007167EB /* Project object */;
+}
