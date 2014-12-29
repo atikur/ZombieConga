@@ -16,6 +16,8 @@ class GameScene: SKScene {
     let zombieMovePointsPerSec: CGFloat = 480.0
     var velocity = CGPointZero
     
+    let playableRect: CGRect
+    
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
         
@@ -61,8 +63,8 @@ class GameScene: SKScene {
     }
     
     func boundsCheckZombie() {
-        let bottomLeft = CGPointZero
-        let topRight = CGPoint(x: size.width, y: size.height)
+        let bottomLeft = CGPoint(x: 0, y: CGRectGetMinY(playableRect))
+        let topRight = CGPoint(x: size.width, y: CGRectGetMaxY(playableRect))
         
         if zombie.position.x <= bottomLeft.x {
             zombie.position.x = bottomLeft.x
@@ -96,5 +98,17 @@ class GameScene: SKScene {
         let touch = touches.anyObject() as UITouch
         let touchLocation = touch.locationInNode(self)
         sceneTouched(touchLocation)
+    }
+    
+    override init(size: CGSize) {
+        let maxAspectRatio: CGFloat = 16.0/9.0
+        let playableHeight = size.width / maxAspectRatio
+        let playableMargin = (size.height - playableHeight)/2.0
+        playableRect = CGRect(x: 0, y: playableMargin, width: size.width, height: playableHeight)
+        super.init(size: size)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
