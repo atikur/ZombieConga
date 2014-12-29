@@ -47,20 +47,20 @@ class GameScene: SKScene {
     }
     
     func moveSprite(sprite: SKSpriteNode, velocity: CGPoint) {
-        let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
+        let amountToMove = velocity * CGFloat(dt)
         println("Amount to move: \(amountToMove)")
-        sprite.position = CGPoint(x: sprite.position.x + amountToMove.x, y: sprite.position.y + amountToMove.y)
+        sprite.position += amountToMove
     }
     
     func moveZombieTowardLocation(location: CGPoint) {
         // offset vector between the touch location and zombie's current position
-        let offset = CGPoint(x: location.x - zombie.position.x, y: location.y - zombie.position.y)
+        let offset = location - zombie.position
         // length of offset vector
-        let length = sqrt(Double(offset.x * offset.x + offset.y * offset.y))
+        let length = offset.length()
         // unit vector in the direction of offset vector
-        let direction = CGPoint(x: offset.x/CGFloat(length), y: offset.y/CGFloat(length))
+        let direction = offset.normalized()
         // updated velocity vector
-        velocity = CGPoint(x: direction.x * zombieMovePointsPerSec, y: direction.y * zombieMovePointsPerSec)
+        velocity = direction * zombieMovePointsPerSec
     }
     
     func boundsCheckZombie() {
@@ -90,7 +90,7 @@ class GameScene: SKScene {
     }
     
     func rotateSprite(sprite: SKSpriteNode, direction: CGPoint) {
-        sprite.zRotation = CGFloat(atan2(Double(direction.y), Double(direction.x)))
+        sprite.zRotation = direction.angle
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
