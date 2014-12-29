@@ -43,6 +43,7 @@ class GameScene: SKScene {
         
         moveSprite(zombie, velocity: velocity)
         boundsCheckZombie()
+        rotateSprite(zombie, direction: velocity)
     }
     
     func moveSprite(sprite: SKSpriteNode, velocity: CGPoint) {
@@ -86,6 +87,10 @@ class GameScene: SKScene {
     
     func sceneTouched(touchLocation: CGPoint) {
         moveZombieTowardLocation(touchLocation)
+    }
+    
+    func rotateSprite(sprite: SKSpriteNode, direction: CGPoint) {
+        sprite.zRotation = CGFloat(atan2(Double(direction.y), Double(direction.x)))
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
