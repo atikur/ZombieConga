@@ -14,6 +14,7 @@ class GameScene: SKScene {
     var lastUpdateTime: NSTimeInterval = 0
     var dt: NSTimeInterval = 0
     let zombieMovePointsPerSec: CGFloat = 480.0
+    let zombieRotateRadiansPerSec: CGFloat = 4.0 * π
     var velocity = CGPointZero
     
     let playableRect: CGRect
@@ -43,7 +44,7 @@ class GameScene: SKScene {
         
         moveSprite(zombie, velocity: velocity)
         boundsCheckZombie()
-        rotateSprite(zombie, direction: velocity)
+        rotateSprite(zombie, direction: velocity, rotateRadiansPerSec: zombieRotateRadiansPerSec)
     }
     
     func moveSprite(sprite: SKSpriteNode, velocity: CGPoint) {
@@ -89,8 +90,14 @@ class GameScene: SKScene {
         moveZombieTowardLocation(touchLocation)
     }
     
-    func rotateSprite(sprite: SKSpriteNode, direction: CGPoint) {
-        sprite.zRotation = direction.angle
+    func rotateSprite(sprite: SKSpriteNode, direction: CGPoint, rotateRadiansPerSec: CGFloat) {
+        // shortest angle between current and desired direction
+        let shortest = shortestAngleBetween(sprite.zRotation, direction.angle)
+        var amtToRotate = rotateRadiansPerSec * CGFloat(dt)
+        if abs(shortest) < amtToRotate {
+            amtToRotate = abs(shortest)
+        }
+        sprite.zRotation += amtToRotate * shortest.sign()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
