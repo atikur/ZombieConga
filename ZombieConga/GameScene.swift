@@ -31,6 +31,8 @@ class GameScene: SKScene {
         // add zombie
         zombie.position = CGPointMake(400, 400)
         addChild(zombie)
+        
+        spawnEnemy()
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -40,16 +42,16 @@ class GameScene: SKScene {
             dt = 0
         }
         lastUpdateTime = currentTime
-        println("\(dt*1000) milliseconds since last update")
         
         moveSprite(zombie, velocity: velocity)
         boundsCheckZombie()
         rotateSprite(zombie, direction: velocity, rotateRadiansPerSec: zombieRotateRadiansPerSec)
     }
     
+    // MARK: - Zombie
+    
     func moveSprite(sprite: SKSpriteNode, velocity: CGPoint) {
         let amountToMove = velocity * CGFloat(dt)
-        println("Amount to move: \(amountToMove)")
         sprite.position += amountToMove
     }
     
@@ -99,6 +101,41 @@ class GameScene: SKScene {
         }
         sprite.zRotation += amtToRotate * shortest.sign()
     }
+    
+    // MARK: - Enemy
+    
+    func spawnEnemy() {
+        // add enemy sprite
+        let enemy = SKSpriteNode(imageNamed: "enemy")
+        enemy.position = CGPoint(x: size.width + enemy.size.width/2, y: size.height/2)
+        addChild(enemy)
+        
+        let actionMidMove = SKAction.moveByX(
+            -size.width/2 - enemy.size.width/2,
+            y: -CGRectGetHeight(playableRect)/2 + enemy.size.height/2,
+            duration: 1.0)
+        
+        let actionMove = SKAction.moveByX(
+            -size.width/2 - enemy.size.width/2,
+            y: CGRectGetHeight(playableRect)/2 - enemy.size.height/2,
+            duration: 1.0)
+        
+        let wait = SKAction.waitForDuration(0.25)
+        
+        let logMessage = SKAction.runBlock({
+            println("Reached bottom!")
+        })
+        
+        let reverseMid = actionMidMove.reversedAction()
+        let reverseMove = actionMove.reversedAction()
+        
+        let halfSequence = SKAction.sequence([actionMidMove, logMessage, wait, actionMove])
+        let sequence = SKAction.sequence([halfSequence, halfSequence.reversedAction()])
+        
+        enemy.runAction(sequence)
+    }
+    
+    // MARK: -
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         let touch = touches.anyObject() as UITouch
