@@ -18,6 +18,8 @@ class GameScene: SKScene {
     let zombieRotateRadiansPerSec: CGFloat = 4.0 * π
     var velocity = CGPointZero
     
+    var lastTouchLocation: CGPoint?
+    
     let playableRect: CGRect
     
     override func didMoveToView(view: SKView) {
@@ -48,9 +50,19 @@ class GameScene: SKScene {
         }
         lastUpdateTime = currentTime
         
-        moveSprite(zombie, velocity: velocity)
+        if let lastTouchLocation = lastTouchLocation {
+            let touchDistance = (lastTouchLocation - zombie.position).length()
+            if touchDistance < zombieMovePointsPerSec * CGFloat(dt) {
+                zombie.position = lastTouchLocation
+                velocity = CGPointZero
+                stopZombieAnimation()
+            } else {
+                moveSprite(zombie, velocity: velocity)
+                rotateSprite(zombie, direction: velocity, rotateRadiansPerSec: zombieRotateRadiansPerSec)
+            }
+        }
+        
         boundsCheckZombie()
-        rotateSprite(zombie, direction: velocity, rotateRadiansPerSec: zombieRotateRadiansPerSec)
     }
     
     // MARK: - Zombie
@@ -109,6 +121,7 @@ class GameScene: SKScene {
     
     func sceneTouched(touchLocation: CGPoint) {
         moveZombieTowardLocation(touchLocation)
+        lastTouchLocation = touchLocation
     }
     
     func rotateSprite(sprite: SKSpriteNode, direction: CGPoint, rotateRadiansPerSec: CGFloat) {
