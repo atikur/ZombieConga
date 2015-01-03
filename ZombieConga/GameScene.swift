@@ -10,6 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     let zombie = SKSpriteNode(imageNamed: "zombie1")
+    let zombieAnimation: SKAction
     
     var lastUpdateTime: NSTimeInterval = 0
     var dt: NSTimeInterval = 0
@@ -32,6 +33,8 @@ class GameScene: SKScene {
         zombie.position = CGPointMake(400, 400)
         addChild(zombie)
         
+        //zombie.runAction(SKAction.repeatActionForever(zombieAnimation))
+        
         runAction(SKAction.repeatActionForever(
             SKAction.sequence([SKAction.runBlock(spawnEnemy),
                                SKAction.waitForDuration(2.0)])))
@@ -52,12 +55,26 @@ class GameScene: SKScene {
     
     // MARK: - Zombie
     
+    func startZombieAnimation() {
+        if zombie.actionForKey("animation") == nil {
+            zombie.runAction(
+                SKAction.repeatActionForever(zombieAnimation),
+                withKey: "animation")
+        }
+    }
+    
+    func stopZombieAnimation() {
+        zombie.removeActionForKey("animation")
+    }
+    
     func moveSprite(sprite: SKSpriteNode, velocity: CGPoint) {
         let amountToMove = velocity * CGFloat(dt)
         sprite.position += amountToMove
     }
     
     func moveZombieTowardLocation(location: CGPoint) {
+        startZombieAnimation()
+        
         // offset vector between the touch location and zombie's current position
         let offset = location - zombie.position
         // length of offset vector
@@ -140,6 +157,18 @@ class GameScene: SKScene {
         let playableHeight = size.width / maxAspectRatio
         let playableMargin = (size.height - playableHeight)/2.0
         playableRect = CGRect(x: 0, y: playableMargin, width: size.width, height: playableHeight)
+        
+        var textures: [SKTexture] = []
+        for i in 1...4 {
+            textures.append(SKTexture(imageNamed: "zombie\(i)"))
+        }
+        
+        textures.append(textures[2])
+        textures.append(textures[1])
+        
+        zombieAnimation = SKAction.repeatActionForever(
+            SKAction.animateWithTextures(textures, timePerFrame: 0.1))
+        
         super.init(size: size)
     }
 
