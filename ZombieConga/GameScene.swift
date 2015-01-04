@@ -35,11 +35,15 @@ class GameScene: SKScene {
         zombie.position = CGPointMake(400, 400)
         addChild(zombie)
         
-        //zombie.runAction(SKAction.repeatActionForever(zombieAnimation))
-        
+        // add enemy
         runAction(SKAction.repeatActionForever(
             SKAction.sequence([SKAction.runBlock(spawnEnemy),
                                SKAction.waitForDuration(2.0)])))
+        
+        // add cat
+        runAction(SKAction.repeatActionForever(
+            SKAction.sequence([SKAction.runBlock(spwanCat),
+                               SKAction.waitForDuration(1.0)])))
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -149,6 +153,26 @@ class GameScene: SKScene {
         let actionMove = SKAction.moveToX(-enemy.size.width/2, duration: 2.0)
         let actionRemove = SKAction.removeFromParent()
         enemy.runAction(SKAction.sequence([actionMove, actionRemove]))
+    }
+    
+    // MARK: - Cat
+    
+    func spwanCat() {
+        let cat = SKSpriteNode(imageNamed: "cat")
+        // randomly position cat inside playable rectangle
+        cat.position = CGPoint(
+            x: CGFloat.random(min: CGRectGetMinX(playableRect), max: CGRectGetMaxX(playableRect)),
+            y: CGFloat.random(min: CGRectGetMinY(playableRect), max: CGRectGetMaxY(playableRect)))
+        cat.setScale(0)
+        addChild(cat)
+        
+        let appear = SKAction.scaleTo(1.0, duration: 0.5)
+        let wait = SKAction.waitForDuration(10.0)
+        let disappear = SKAction.scaleTo(0, duration: 0.5)
+        let removeFromParent = SKAction.removeFromParent()
+        let actions = [appear, wait, disappear, removeFromParent]
+        
+        cat.runAction(SKAction.sequence(actions))
     }
     
     // MARK: -
