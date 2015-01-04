@@ -22,6 +22,9 @@ class GameScene: SKScene {
     
     let playableRect: CGRect
     
+    let catCollisionSound: SKAction = SKAction.playSoundFileNamed("hitCat.wav", waitForCompletion: false)
+    let enemyCollisionSound: SKAction = SKAction.playSoundFileNamed("hitCatLady.wav", waitForCompletion: false)
+    
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
         
@@ -198,10 +201,12 @@ class GameScene: SKScene {
     
     func zombieHitCat(cat: SKSpriteNode) {
         cat.removeFromParent()
+        runAction(catCollisionSound)
     }
     
     func zombieHitEnemy(enemy: SKSpriteNode) {
         enemy.removeFromParent()
+        runAction(enemyCollisionSound)
     }
     
     func checkCollisions() {

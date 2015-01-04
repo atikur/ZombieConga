@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4758B54A1A59B5B5001042E0 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4758B5451A59B5B5001042E0 /* backgroundMusic.mp3 */; };
+		4758B54B1A59B5B5001042E0 /* hitCat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4758B5461A59B5B5001042E0 /* hitCat.wav */; };
+		4758B54C1A59B5B5001042E0 /* hitCatLady.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4758B5471A59B5B5001042E0 /* hitCatLady.wav */; };
+		4758B54D1A59B5B5001042E0 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4758B5481A59B5B5001042E0 /* lose.wav */; };
+		4758B54E1A59B5B5001042E0 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4758B5491A59B5B5001042E0 /* win.wav */; };
 		47885D221A42CB55007167EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47885D211A42CB55007167EB /* AppDelegate.swift */; };
 		47885D261A42CB55007167EB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47885D251A42CB55007167EB /* GameScene.swift */; };
 		47885D281A42CB55007167EB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47885D271A42CB55007167EB /* GameViewController.swift */; };
@@ -39,6 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4758B5451A59B5B5001042E0 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		4758B5461A59B5B5001042E0 /* hitCat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hitCat.wav; sourceTree = "<group>"; };
+		4758B5471A59B5B5001042E0 /* hitCatLady.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hitCatLady.wav; sourceTree = "<group>"; };
+		4758B5481A59B5B5001042E0 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
+		4758B5491A59B5B5001042E0 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		47885D1C1A42CB55007167EB /* ZombieConga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieConga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47885D201A42CB55007167EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47885D211A42CB55007167EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +92,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4758B5441A59B5B5001042E0 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				4758B5451A59B5B5001042E0 /* backgroundMusic.mp3 */,
+				4758B5461A59B5B5001042E0 /* hitCat.wav */,
+				4758B5471A59B5B5001042E0 /* hitCatLady.wav */,
+				4758B5481A59B5B5001042E0 /* lose.wav */,
+				4758B5491A59B5B5001042E0 /* win.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		47885D131A42CB55007167EB = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +125,7 @@
 		47885D1E1A42CB55007167EB /* ZombieConga */ = {
 			isa = PBXGroup;
 			children = (
+				4758B5441A59B5B5001042E0 /* Sounds */,
 				47885D751A42EDED007167EB /* Images */,
 				47885D211A42CB55007167EB /* AppDelegate.swift */,
 				47885D251A42CB55007167EB /* GameScene.swift */,
@@ -242,17 +265,22 @@
 				47885DA21A42FEED007167EB /* cat.png in Resources */,
 				47885DAF1A42FF27007167EB /* MainMenu.png in Resources */,
 				47885DB01A42FF27007167EB /* YouLose.png in Resources */,
+				4758B54B1A59B5B5001042E0 /* hitCat.wav in Resources */,
 				47885DAE1A42FF27007167EB /* background2.png in Resources */,
 				47885DA71A42FEED007167EB /* zombie4.png in Resources */,
 				47885DA41A42FEED007167EB /* zombie1.png in Resources */,
 				47885DAD1A42FF27007167EB /* background1.png in Resources */,
 				47885DA31A42FEED007167EB /* enemy.png in Resources */,
+				4758B54A1A59B5B5001042E0 /* backgroundMusic.mp3 in Resources */,
 				47885D301A42CB55007167EB /* LaunchScreen.xib in Resources */,
 				47885D2D1A42CB55007167EB /* Images.xcassets in Resources */,
+				4758B54E1A59B5B5001042E0 /* win.wav in Resources */,
 				47885DA61A42FEED007167EB /* zombie3.png in Resources */,
 				47885D2B1A42CB55007167EB /* Main.storyboard in Resources */,
 				47885DB11A42FF27007167EB /* YouWin.png in Resources */,
+				4758B54D1A59B5B5001042E0 /* lose.wav in Resources */,
 				47885DA51A42FEED007167EB /* zombie2.png in Resources */,
+				4758B54C1A59B5B5001042E0 /* hitCatLady.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
