@@ -173,11 +173,17 @@ class GameScene: SKScene {
         let leftWiggle = SKAction.rotateByAngle(π/8.0, duration: 0.5)
         let rightWiggle = leftWiggle.reversedAction()
         let fullWiggle = SKAction.sequence([leftWiggle, rightWiggle])
-        let wiggleWait = SKAction.repeatAction(fullWiggle, count: 10)
+        
+        let scaleUp = SKAction.scaleBy(1.2, duration: 0.25)
+        let scaleDown = scaleUp.reversedAction()
+        let fullScale = SKAction.sequence(
+            [scaleUp, scaleDown, scaleUp, scaleDown])
+        let group = SKAction.group([fullScale, fullWiggle])
+        let groupWait = SKAction.repeatAction(group, count: 10)
         
         let disappear = SKAction.scaleTo(0, duration: 0.5)
         let removeFromParent = SKAction.removeFromParent()
-        let actions = [appear, wiggleWait, disappear, removeFromParent]
+        let actions = [appear, groupWait, disappear, removeFromParent]
         
         cat.runAction(SKAction.sequence(actions))
     }
