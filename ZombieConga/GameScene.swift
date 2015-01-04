@@ -69,6 +69,10 @@ class GameScene: SKScene {
         boundsCheckZombie()
     }
     
+    override func didEvaluateActions() {
+        checkCollisions()
+    }
+    
     // MARK: - Zombie
     
     func startZombieAnimation() {
@@ -143,6 +147,7 @@ class GameScene: SKScene {
     func spawnEnemy() {
         // add enemy sprite
         let enemy = SKSpriteNode(imageNamed: "enemy")
+        enemy.name = "enemy"
         enemy.position = CGPoint(
             x: size.width + enemy.size.width/2,
             y: CGFloat.random(
@@ -159,6 +164,7 @@ class GameScene: SKScene {
     
     func spwanCat() {
         let cat = SKSpriteNode(imageNamed: "cat")
+        cat.name = "cat"
         // randomly position cat inside playable rectangle
         cat.position = CGPoint(
             x: CGFloat.random(min: CGRectGetMinX(playableRect), max: CGRectGetMaxX(playableRect)),
@@ -186,6 +192,40 @@ class GameScene: SKScene {
         let actions = [appear, groupWait, disappear, removeFromParent]
         
         cat.runAction(SKAction.sequence(actions))
+    }
+    
+    // MARK: - Collision
+    
+    func zombieHitCat(cat: SKSpriteNode) {
+        cat.removeFromParent()
+    }
+    
+    func zombieHitEnemy(enemy: SKSpriteNode) {
+        enemy.removeFromParent()
+    }
+    
+    func checkCollisions() {
+        var hitCats: [SKSpriteNode] = []
+        enumerateChildNodesWithName("cat", usingBlock: { node, _ in
+            let cat = node as SKSpriteNode
+            if CGRectIntersectsRect(cat.frame, self.zombie.frame) {
+                hitCats.append(cat)
+            }
+        })
+        for cat in hitCats {
+            zombieHitCat(cat)
+        }
+        
+        var hitEnemies: [SKSpriteNode] = []
+        enumerateChildNodesWithName("enemy", usingBlock: { node, _ in
+            let enemy = node as SKSpriteNode
+            if CGRectIntersectsRect(CGRectInset(node.frame, 20, 20), self.zombie.frame) {
+                hitEnemies.append(enemy)
+            }
+        })
+        for enemy in hitEnemies {
+            zombieHitEnemy(enemy)
+        }
     }
     
     // MARK: -
