@@ -21,6 +21,7 @@ class GameScene: SKScene {
     var lastTouchLocation: CGPoint?
     
     let playableRect: CGRect
+    var isZombieInvincible = false
     
     let catCollisionSound: SKAction = SKAction.playSoundFileNamed("hitCat.wav", waitForCompletion: false)
     let enemyCollisionSound: SKAction = SKAction.playSoundFileNamed("hitCatLady.wav", waitForCompletion: false)
@@ -205,8 +206,27 @@ class GameScene: SKScene {
     }
     
     func zombieHitEnemy(enemy: SKSpriteNode) {
-        enemy.removeFromParent()
-        runAction(enemyCollisionSound)
+        isZombieInvincible = true
+        
+        // blink zombie
+        let blinkTimes = 10.0
+        let duration = 3.0
+        let blinkAction = SKAction.customActionWithDuration(duration, actionBlock: { node, elapsedTime in
+            let slice = duration / blinkTimes
+            let remainder = Double(elapsedTime) % slice
+            node.hidden = remainder > slice / 2
+        })
+        
+        let readyToPlayAction = SKAction.runBlock({
+            self.zombie.hidden = false
+            self.isZombieInvincible = false
+        })
+        
+        let collisionGroup = SKAction.group([blinkAction, enemyCollisionSound])
+        
+        let action = SKAction.sequence([collisionGroup, readyToPlayAction])
+        
+        zombie.runAction(action)
     }
     
     func checkCollisions() {
@@ -221,15 +241,17 @@ class GameScene: SKScene {
             zombieHitCat(cat)
         }
         
-        var hitEnemies: [SKSpriteNode] = []
-        enumerateChildNodesWithName("enemy", usingBlock: { node, _ in
-            let enemy = node as SKSpriteNode
-            if CGRectIntersectsRect(CGRectInset(node.frame, 20, 20), self.zombie.frame) {
-                hitEnemies.append(enemy)
+        if !isZombieInvincible {
+            var hitEnemies: [SKSpriteNode] = []
+            enumerateChildNodesWithName("enemy", usingBlock: { node, _ in
+                let enemy = node as SKSpriteNode
+                if CGRectIntersectsRect(CGRectInset(node.frame, 20, 20), self.zombie.frame) {
+                    hitEnemies.append(enemy)
+                }
+            })
+            for enemy in hitEnemies {
+                zombieHitEnemy(enemy)
             }
-        })
-        for enemy in hitEnemies {
-            zombieHitEnemy(enemy)
         }
     }
     
