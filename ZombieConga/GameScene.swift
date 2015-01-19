@@ -23,6 +23,8 @@ class GameScene: SKScene {
     let playableRect: CGRect
     var isZombieInvincible = false
     
+    let catMovePointsPerSec: CGFloat = 480.0
+    
     let catCollisionSound: SKAction = SKAction.playSoundFileNamed("hitCat.wav", waitForCompletion: false)
     let enemyCollisionSound: SKAction = SKAction.playSoundFileNamed("hitCatLady.wav", waitForCompletion: false)
     
@@ -37,6 +39,7 @@ class GameScene: SKScene {
         
         // add zombie
         zombie.position = CGPointMake(400, 400)
+        zombie.zPosition = 100
         addChild(zombie)
         
         // add enemy
@@ -71,6 +74,7 @@ class GameScene: SKScene {
         }
         
         boundsCheckZombie()
+        moveTrain()
     }
     
     override func didEvaluateActions() {
@@ -201,8 +205,32 @@ class GameScene: SKScene {
     // MARK: - Collision
     
     func zombieHitCat(cat: SKSpriteNode) {
-        cat.removeFromParent()
+        cat.name = "train"
+        cat.removeAllActions()
+        cat.setScale(1.0)
+        cat.zRotation = 0
+        
+        let greenAction = SKAction.colorizeWithColor(SKColor.greenColor() , colorBlendFactor: 1, duration: 0.2)
+        cat.runAction(greenAction)
+        
         runAction(catCollisionSound)
+    }
+    
+    func moveTrain() {
+        var targetPosition = zombie.position
+        
+        enumerateChildNodesWithName("train", usingBlock: { node, _ in
+            if !node.hasActions() {
+                let actionDuration = 0.3
+                let offset = targetPosition - node.position
+                let direction = offset.normalized()
+                let amountToMovePerSec = direction * self.catMovePointsPerSec
+                let amountToMove = amountToMovePerSec * CGFloat(actionDuration)
+                let moveAction = SKAction.moveByX(amountToMove.x, y: amountToMove.y, duration: actionDuration)
+                node.runAction(moveAction)
+            }
+            targetPosition = node.position
+        })
     }
     
     func zombieHitEnemy(enemy: SKSpriteNode) {
