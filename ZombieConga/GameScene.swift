@@ -32,6 +32,8 @@ class GameScene: SKScene {
     let enemyCollisionSound: SKAction = SKAction.playSoundFileNamed("hitCatLady.wav", waitForCompletion: false)
     
     override func didMoveToView(view: SKView) {
+        playBackgroundMusic("backgroundMusic.mp3")
+        
         backgroundColor = SKColor.whiteColor()
         
         // add background sprite
@@ -82,6 +84,7 @@ class GameScene: SKScene {
         if lives <= 0 && !gameOver {
             gameOver = true
             println("You lose!")
+            backgroundMusicPlayer.stop()
             
             let gameOverScene = GameOverScene(size: size, won: false)
             gameOverScene.scaleMode = scaleMode
@@ -251,6 +254,7 @@ class GameScene: SKScene {
         if trainCount >= 10 && !gameOver {
             gameOver = true
             println("You win!")
+            backgroundMusicPlayer.stop()
             
             let gameOverScene = GameOverScene(size: size, won: true)
             gameOverScene.scaleMode = scaleMode
